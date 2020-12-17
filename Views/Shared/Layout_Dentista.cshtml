@@ -1,0 +1,50 @@
+﻿@{
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Dentista</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink(linkText: "Información de usuario", actionName: "Info", controllerName: "Home")</li>
+                    <li>@Html.ActionLink(linkText: "Ver citas", actionName: "Ver_Todas_Citas", controllerName: "Home")</li>
+                    <li>@Html.ActionLink(linkText: "Mis citas", actionName: "Ver_Citas_Dentista", controllerName: "Home")</li>
+                    <li>@Html.ActionLink(linkText: "Reportes", actionName: "Reportes", controllerName: "Home")</li>
+                    <li>@Html.ActionLink("Logout", "Index", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="w3-container" style="padding:8px; background-color:black">
+            <p style="font-size:15px; color:white">&copy; @DateTime.Now.Year - Clinica Dental</p>
+            <p style="font-size:15px; color:white">Grupo 2 © 2020 - Universidad Hispanoamericana<p>
+            <p style="font-size:15px; color:white">Proyecto Final - Desarrollo</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

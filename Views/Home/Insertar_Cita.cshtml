@@ -1,0 +1,94 @@
+﻿@model Proyecto.Models.Insertar_Cita
+@{
+    ViewBag.Title = "Solicitar Cita";
+    if (Credenciales.u_tipo == "Admin")
+    {
+        Layout = "~/Views/Shared/Layout_Admin.cshtml";
+    }
+    else
+    {
+        if (Credenciales.u_tipo == "Cliente")
+        {
+            Layout = "~/Views/Shared/Layout_Cliente.cshtml";
+        }
+        else
+        {
+            if (Credenciales.u_tipo == "Dentista")
+            {
+                Layout = "~/Views/Shared/Layout_Dentista.cshtml";
+            }
+        }
+    }
+}
+
+<!DOCTYPE html>
+
+<title>W3.CSS Template</title>
+<html>
+<body style="background-color:lightblue">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Oswald"
+        }
+
+        body {
+            font-family: "Open Sans"
+        }
+    </style>
+
+    <div class="w3-content w3-white" style="max-width:1600px">
+        <header class="w3-container w3-center w3-padding-48 w3-white">
+            <h1 class="w3-xxxlarge"><b>SOLICITAR CITA</b></h1>
+        </header>
+
+        <div class="w3-container w3-center w3-white" style="font-size:20px">
+            @using (Html.BeginForm())
+            {
+                <img src="~/Imagenes/agenda.png" alt="Inicio" style="width:40%">
+                <br /><br />
+                @Html.ValidationSummary()
+                string cedula, nombre;
+                if (Credenciales.u_tipo == "Admin")
+                {
+                    cedula = "";
+                    nombre = "";
+
+                    <b style="font-size:26px">Cedula: </b><br />
+                    @Html.TextBoxFor(x => x.cedula, new { @class = "badge-light", placeholder="Cédula" })
+                    <br /><br />
+                    <b style="font-size:26px">Paciente: </b><br />
+                    @Html.TextBoxFor(x => x.paciente, new { @class = "badge-light", placeholder = "Paciente" })
+                }
+                else
+                {
+                    cedula = Credenciales.u_cedula;
+                    nombre = Credenciales.u_nombre;
+
+                    <b style="font-size:26px">Cedula: </b><br />
+                    @Html.TextBoxFor(x => x.cedula, new { @class = "badge-light", @Value = cedula, @readonly = "readonly" })
+                    <br /><br />
+                    <b style="font-size:26px">Paciente: </b><br />
+                    @Html.TextBoxFor(x => x.paciente, new { @class = "badge-light", @Value = nombre, @readonly = "readonly" })
+                }
+                <br /><br />
+                <b style="font-size:26px">Motivo: </b><br />
+                @Html.TextAreaFor(x => x.motivo, new { @class = "badge-light", placeholder = "Citar el motivo" })
+                <br /><br />
+
+                <input class="btn btn-success" type="submit" value="Aceptar">
+                <br />
+
+            }
+
+        </div>
+        <br /><br />
+        <br />
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+﻿@model Proyecto.Models.Ver_Citas
+@{
+    ViewBag.Title = "Cancelar_Cita";
+    if (Credenciales.u_tipo == "Admin")
+    {
+        Layout = "~/Views/Shared/Layout_Admin.cshtml";
+    }
+    else
+    {
+        if (Credenciales.u_tipo == "Cliente")
+        {
+            Layout = "~/Views/Shared/Layout_Cliente.cshtml";
+        }
+        else
+        {
+            if (Credenciales.u_tipo == "Dentista")
+            {
+                Layout = "~/Views/Shared/Layout_Dentista.cshtml";
+            }
+        }
+    }
+
+}
+
+<!DOCTYPE html>
+
+<title>W3.CSS Template</title>
+<html>
+<body style="background-color:lightblue">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Oswald"
+        }
+
+        body {
+            font-family: "Open Sans"
+        }
+    </style>
+
+    <div class="w3-content w3-white" style="max-width:1600px">
+
+        <!-- Header -->
+        <header class="w3-container w3-center w3-padding-48 w3-white">
+            <h1 class="w3-xxxlarge"><b>CANCELAR CITA</b></h1>
+            <h3>Cita cancelada exitosamente</h3>
+        </header>
+        <div class="w3-container w3-center w3-white" style="font-size:40px">
+            <br />
+            <img src="~/Imagenes/cancelado.png" alt="Inicio" style="width:25%">
+            <h4 style="color:red; font-size:25px">La cita número @Model.id_cita fue cancelada</h4>
+            <br />
+            @{
+                ViewBag.Title = "Cancelar_Cita";
+                if (Credenciales.u_tipo == "Admin")
+                {
+                    <p style="color:steelblue">@Html.ActionLink(linkText: "Volver a lista de citas", actionName: "Ver_Todas_Citas", controllerName: "Home")</p>
+                }
+                else
+                {
+                    if (Credenciales.u_tipo == "Cliente")
+                    {
+                        <p style="color:steelblue">@Html.ActionLink(linkText: "Volver a lista de citas", actionName: "Ver_Citas_Cliente", controllerName: "Home")</p>
+                    }
+                    else
+                    {
+                        if (Credenciales.u_tipo == "Dentista")
+                        {
+                            <p style="color:steelblue">@Html.ActionLink(linkText: "Volver a lista de citas", actionName: "Ver_Citas_Dentista", controllerName: "Home")</p>
+                        }
+                    }
+                }
+
+            }
+            
+            <br /><br />
+        </div>
+        <br /><br />
+        <br />
+    </div>
+</body>
+</html>
+

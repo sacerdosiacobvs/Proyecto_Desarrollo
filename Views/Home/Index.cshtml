@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<title>W3.CSS Template</title>
+<html>
+<body style="background-color:lightblue">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Oswald"
+        }
+
+        body {
+            font-family: "Open Sans"
+        }
+    </style>
+
+    <div class="w3-content w3-white" style="max-width:1600px">
+
+        <!-- Header -->
+        <header class="w3-container w3-center w3-padding-48 w3-white">
+            <h1 class="w3-xxxlarge"><b>CLÍNICA ODONTOLÓGICA</b></h1>
+            <h4>Inicio</h4>
+        </header>
+
+        <!-- About/Information menu -->
+        <div class="w3-col l4">
+            <!-- About Card -->
+            <div class="w3-white w3-container">
+                <img src="~/Imagenes/inicio.jpg" alt="Inicio" style="width:100%">
+                <div class="w3-container w3-black">
+                    <h3>Clínica dental</h3>
+                    <p style="font-size:15px">Somos una clínica dedicada a dar un excelente servicio a nuestros clientes, nuestra misión es brindar sonrisas blancas a todo el mundo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-col l4">
+            <div class="w3-container w3-padding w3-black">
+                <h4>Ofrecemos</h4>
+            </div>
+            <div class="w3-container">
+                <div class="w3-container w3-display-container w3-section" style="height:240px; font-style:italic">
+                    <b>* Revisiones dentales</b><br /><br />
+                    <b>* Cirugía oral</b><br /><br />
+                    <b>* Terapéutica dental</b><br /><br />
+                    <b>* Endodoncia</b><br /><br />
+                    <b>* Tratamiento de caries</b><br /><br />
+                    <b>* Limpieza general</b>
+                </div>
+                <img src="~/Imagenes/servicio.jpg" alt="Inicio" style="width:96%">
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="w3-container w3-padding w3-black">
+                <h4>Login</h4>
+            </div>
+            <div class="w3-container w3-white">
+                <div class="w3-container w3-display-container w3-light-grey w3-section w3-center" style="height:100px">
+                    <br />
+                    <img src="~/Imagenes/usuario.png" alt="Inicio" style="width:90%">
+                    <br />
+                    <p style="font-size:25px; color:steelblue">@Html.ActionLink("INGRESAR", "V_Login")</p>
+                    <br />
+                    <p style="font-size:15px">¿No tiene cuenta? ¡No hay problema!</p>
+                    <p style="font-size:17px; color:steelblue">@Html.ActionLink("REGISTRARSE AQUÍ", "Registrar_Usuario")</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <br /><br /><br />
+        <br /><br /><br />
+        <br /><br /><br />
+        <br /><br /><br />
+        <br /><br /><br />
+        <br /><br /><br />
+        <br /><br /><br />
+        <br /><br /><br />
+        <br /><br /><br />
+    </div>
+</body>
+</html>
